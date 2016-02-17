@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/shashikbanda/full-stack-reddit-clone#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "pg": "^4.4.6"
   }
 }
