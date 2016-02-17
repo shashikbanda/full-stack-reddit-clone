@@ -5,10 +5,13 @@ var bodyParser = require('body-parser');
 var knex = require('./db/knex');
 var ejs = require('ejs')
 
+var posts = require('./routes/posts')
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// app.use('/', submit)
+app.use('/', posts)
+
 app.get('*', function(req, res){
 	res.render('index')
 })
