@@ -3,11 +3,11 @@ var application = angular.module('myApp', ['ngRoute'])
 application.config(function($routeProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl:'main.html',
+		templateUrl:'../partials/main.html',
 		controller: 'MainController'
 	})
 	.when('/submit', {
-		templateUrl:'submit.html',
+		templateUrl:'../partials/submit.html',
 		controller: 'SubmitController'
 	})
 })

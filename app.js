@@ -7,13 +7,13 @@ var ejs = require('ejs')
 
 var posts = require('./routes/posts')
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.use('/js', express.static(__dirname + '/js'));
+app.use('/partials', express.static(__dirname + '/partials'))
 
 app.use('/', posts)
 
 app.get('*', function(req, res){
-	res.render('index')
+	res.sendFile('index.html', { root: __dirname + '/assets' });
 })
 
 app.listen('3000', function(){

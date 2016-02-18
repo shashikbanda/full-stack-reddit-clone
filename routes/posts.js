@@ -8,7 +8,7 @@ router.get('/posts', function(req, res){
 })
 
 router.post('/posts', function(req,res){
-	var l;
+	
 })
 
 
