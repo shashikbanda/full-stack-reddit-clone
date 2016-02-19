@@ -7,3 +7,7 @@ application.controller('SubmitController', function($scope,$http,$location){
 		$location.path('/');
 	}
 })
+
+application.controller('MainController', function($scope){
+	console.log("main controller reached")
+})
