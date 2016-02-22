@@ -3,12 +3,12 @@ var router = express.Router();
 
 var knex = require('../db/knex')
 
-router.get('/posts', function(req, res){
+router.get('/', function(req, res){
 	res.render('index')
 })
 
-router.post('/posts', function(req,res){
-	
+router.post('/', function(req,res){
+
 })
 
 
