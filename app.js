@@ -5,15 +5,17 @@ var bodyParser = require('body-parser');
 var knex = require('./db/knex');
 var ejs = require('ejs')
 
-var posts = require('./routes/posts')
+var index = require('./routes/posts')
 
 // app.use('/js', express.static(__dirname + '/public'));
 // app.use('/partials', express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', posts)
+app.use('/index', index)
 
-app.get('*', function(req, res){
+app.get('/', function(req, res){
 	res.sendFile(__dirname +'/public/index.html');
 })
 

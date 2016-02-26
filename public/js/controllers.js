@@ -3,13 +3,18 @@ var application = angular.module('myApp');
 
 
 application.controller('SubmitController', function($scope,$http,$location){
-	$scope.post = {}; //initializing the post obj for data from submit form
+	$scope.post = {};
+	$scope.post.title = "";
+	$scope.post.author = "";
+	$scope.post.url = "";
+	$scope.post.description = "";
 	$scope.submitPost = function(){
-		knex('post').insert({author:'test'}).then(){
-			$location.path('/');
-		}
-			
+		$http.post('/index', $scope.post)
+		.then(function(){
+			console.log("added")
+		})
 	}
+			
 })
 
 application.controller('MainController', function($scope){
