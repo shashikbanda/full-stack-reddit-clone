@@ -13,11 +13,16 @@ router.post('/', function(req, res, next){
 	var author = req.body.author;
 	var url = req.body.url;
 	var description = req.body.description;
-	knex('postsData').insert({
+	knex('posts')
+	.insert({
 		title:title,
 		author:author,
-		url: url,
-		description: description})
+		imageUrl: url,
+		description: description
+	})
+	.then(function(data){
+		res.send("test")
+	})
 })
 
 

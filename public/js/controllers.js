@@ -13,6 +13,7 @@ application.controller('SubmitController', function($scope,$http,$location){
 		.then(function(){
 			console.log("added")
 		})
+		$location.url('/#/')
 	}
 			
 })
