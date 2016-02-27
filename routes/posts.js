@@ -4,7 +4,10 @@ var router = express.Router();
 var knex = require('../db/knex');
 
 router.get('/', function(req, res, next){
-	res.send("Hello")
+	knex('posts')
+	.then(function(data){
+		res.send(data)
+	})
 })
 
 

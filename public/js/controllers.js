@@ -11,13 +11,15 @@ application.controller('SubmitController', function($scope,$http,$location){
 	$scope.submitPost = function(){
 		$http.post('/index', $scope.post)
 		.then(function(){
-			console.log("added")
 		})
-		$location.url('/#/')
+		$location.url('/')
 	}
 			
 })
 
-application.controller('MainController', function($scope){
-	console.log("main controller reached")
+application.controller('MainController', function($scope,$http){
+	$scope.postsObject = {};
+	$http.get('/index').then(function(data){
+		$scope.postsObject = data;
+	})
 })
