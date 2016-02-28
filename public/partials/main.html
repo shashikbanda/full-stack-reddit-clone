@@ -1,6 +1,21 @@
 <div class="container">
-	<h1>This is the main </h1>
 	<div ng-repeat="post in postsObject track by $index">
-	{{post}}
+		<div class="postDiv">
+			<div class="row">
+				<div class="col-md-2">
+					<img src="{{postsObject.data[$index].imageUrl}}" height="100px" width="100px">
+				</div>
+				<div class="col-md-8" style="text-align:left">
+					<p>{{postsObject.data[$index].title}}</p>
+					<p>{{postsObject.data[$index].author}}</p>
+					<p>{{postsObject.data[$index].description}}</p>
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn-danger" ng-click="deletePost(postsObject.data[$index])">Delete</button>
+					<button class="btn btn-info" ng-click="editPost(postsObject.data[$index])">Edit</button>
+				</div>
+			</div>
+			
+		</div>		
 	</div>
 </div>

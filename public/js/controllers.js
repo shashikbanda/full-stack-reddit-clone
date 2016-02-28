@@ -22,4 +22,11 @@ application.controller('MainController', function($scope,$http){
 	$http.get('/index').then(function(data){
 		$scope.postsObject = data;
 	})
+	$scope.deletePost = function(post){
+		$scope.deleteTitle = post.title;
+		$scope.deleteAuthor = post.author;
+		$scope.deleteUrl = post.imageUrl;
+		$scope.deleteDesc = post.description;
+
+	}
 })
