@@ -2,7 +2,7 @@ var application = angular.module('myApp');
 // var knex = require('./db/knex');
 
 
-application.controller('SubmitController', function($scope,$http,$location){
+application.controller('SubmitController', function($scope,$http,$location,$route){
 	$scope.post = {};
 	$scope.post.title = "";
 	$scope.post.author = "";
@@ -11,13 +11,14 @@ application.controller('SubmitController', function($scope,$http,$location){
 	$scope.submitPost = function(){
 		$http.post('/index', $scope.post)
 		.then(function(){
+			$route.reload()
 		})
 		$location.url('/')
 	}
 			
 })
 
-application.controller('MainController', function($scope,$http){
+application.controller('MainController', function($scope,$http,$location,$route){
 	$scope.postsObject = {};
 	$http.get('/index').then(function(data){
 		$scope.postsObject = data;
@@ -31,8 +32,9 @@ application.controller('MainController', function($scope,$http){
 
 		$http.post('/index/delete',$scope.remove)
 		.then(function(){
-			console.log("sending object to delete route on api")
+			$route.reload()
 		})
+		$route.reload()
 
 	}
 })

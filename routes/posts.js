@@ -24,7 +24,7 @@ router.post('/', function(req, res, next){
 		description: description
 	})
 	.then(function(data){
-		res.send("test")
+		res.redirect('/#/')
 	})
 })
 
@@ -42,7 +42,7 @@ router.post('/delete', function(req, res, next){
 	.where({title:title_delete})
 	.del()
 	.then(function(data){
-		res.send("tes")
+		res.redirect('/#/')
 	})
 })
 
