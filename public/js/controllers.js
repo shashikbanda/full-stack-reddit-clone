@@ -20,6 +20,8 @@ application.controller('SubmitController', function($scope,$http,$location,$rout
 
 application.controller('MainController', function($scope,$http,$location,$route){
 	$scope.postsObject = {};
+	$scope.showCommentForm = false; //boolean to toggle comment form to add comment
+	$scope.showComments = false; //boolean to toggle comment history on post
 	$http.get('/index').then(function(data){
 		$scope.postsObject = data;
 	})
@@ -36,5 +38,8 @@ application.controller('MainController', function($scope,$http,$location,$route)
 		})
 		$route.reload()
 
+	}
+	$scope.addComment = function(){
+		$scope.showCommentForm = !$scope.showCommentForm;
 	}
 })

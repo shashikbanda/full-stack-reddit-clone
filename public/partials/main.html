@@ -1,21 +1,26 @@
 <div class="container">
 	<div ng-repeat="post in postsObject track by $index">
 		<div class="postDiv">
-			<div class="row">
-				<div class="col-md-2">
-					<img src="{{postsObject.data[$index].imageUrl}}" height="100px" width="100px">
-				</div>
-				<div class="col-md-8" style="text-align:left">
-					<p>{{postsObject.data[$index].title}}</p>
-					<p>{{postsObject.data[$index].author}}</p>
-					<p>{{postsObject.data[$index].description}}</p>
-				</div>
-				<div class="col-md-2">
-					<button class="btn btn-danger" ng-click="deletePost(postsObject.data[$index])">Delete</button>
-					<button class="btn btn-info" ng-click="editPost(postsObject.data[$index])">Edit</button>
+			<div style="display: inline-block;text-align:right">
+				<img src="{{postsObject.data[$index].imageUrl}}" height="100px" width="100px">
+			</div>
+			<div style="display: inline-block; text-align:right">
+				<p>{{postsObject.data[$index].title}}</p>
+				<p>{{postsObject.data[$index].author}}</p>
+				<p>{{postsObject.data[$index].description}}</p>
+				<button class="btn btn-danger" ng-click="deletePost(postsObject.data[$index])">Delete</button>
+				<button class="btn btn-info" ng-click="editPost(postsObject.data[$index])">Edit</button>
+				<button class="btn btn-success" ng-click="addComment(postsObject.data[$index])">Add Comment</button>
+				<button class="btn btn-default" ng-click="viewComment(postsObject.data[$index)">View Comments</button>
+			</div>
+			<div class="addCommentForm" ng-show="showCommentForm">
+				<p>Hello</p>
+			</div>
+			<div class="viewComments" ng-show="showComments">
+				<div class="pastcomments">
+				There
 				</div>
 			</div>
-			
-		</div>		
+		</div>
 	</div>
 </div>
