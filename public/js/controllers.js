@@ -23,10 +23,16 @@ application.controller('MainController', function($scope,$http){
 		$scope.postsObject = data;
 	})
 	$scope.deletePost = function(post){
-		$scope.deleteTitle = post.title;
-		$scope.deleteAuthor = post.author;
-		$scope.deleteUrl = post.imageUrl;
-		$scope.deleteDesc = post.description;
+		$scope.remove = {};
+		$scope.remove.title = post.title;
+		$scope.remove.author = post.author;
+		$scope.remove.url = post.imageUrl;
+		$scope.remove.desc = post.description;
+
+		$http.post('/index/delete',$scope.remove)
+		.then(function(){
+			console.log("sending object to delete route on api")
+		})
 
 	}
 })

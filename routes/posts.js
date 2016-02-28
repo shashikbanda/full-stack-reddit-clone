@@ -28,6 +28,24 @@ router.post('/', function(req, res, next){
 	})
 })
 
+router.get('/delete', function(req, res, next){
+
+})
+
+router.post('/delete', function(req, res, next){
+	var title_delete = req.body.title;
+	var author_delete = req.body.author;
+	var url_delete = req.body.url;
+	var description = req.body.description;
+
+	knex('posts')
+	.where({title:title_delete})
+	.del()
+	.then(function(data){
+		res.send("tes")
+	})
+})
+
 
 
 module.exports = router;
